@@ -3,29 +3,22 @@ package com.example.myapplication.ui.view
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.R
 import com.example.myapplication.data.remote.GeocodingApiService
 import com.example.myapplication.data.repository.GeocodeRepository
+import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.ui.viewmodel.GeocodeViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<GeocodeViewModel> {
-        // Если используете Hilt/Koin — используйте их фабрики
-        ViewModelProvider.Factory { GeocodeViewModel(GeocodeRepository(GeocodingApiService.create())) }
-    }
+   private val viewModel: GeocodeViewModel = GeocodeViewModel(
+       GeocodeRepository(GeocodingApiService)
+   )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val adapter =
             ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mutableListOf())
         binding.listView.adapter = adapter

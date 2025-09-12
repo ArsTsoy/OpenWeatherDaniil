@@ -3,8 +3,10 @@ package com.example.myapplication.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.model.Location
 import com.example.myapplication.data.repository.GeocodeRepository
+import kotlinx.coroutines.launch
 
 class GeocodeViewModel (private val repository: GeocodeRepository) : ViewModel() {
 

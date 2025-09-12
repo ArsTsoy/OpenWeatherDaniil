@@ -15,13 +15,21 @@ interface GeocodingApiService {
         @Query("language") language: String = "en"
     ): GeocodeResponse
 
-    companion object {
+    companion object : GeocodingApiService {
         fun create(): GeocodingApiService {
             val retrofit = Retrofit.Builder()
                 .baseUrl("https://geocoding-api.open-meteo.com/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             return retrofit.create(GeocodingApiService::class.java)
+        }
+
+        override suspend fun searchLocations(
+            name: String,
+            count: Int,
+            language: String
+        ): GeocodeResponse {
+            return create().searchLocations(name, count, language)
         }
     }
 }
