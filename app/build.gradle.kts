@@ -33,8 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures{
-        dataBinding = true
+    buildFeatures {
         viewBinding = true
     }
     compileOptions {
@@ -51,9 +50,9 @@ dependencies {
     implementation(project.dependencies.platform("io.insert-koin:koin-bom:4.1.1"))
     implementation("io.insert-koin:koin-core")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
-    implementation ("com.google.code.gson:gson:2.13.2")
-    implementation ("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation ("com.squareup.retrofit2:converter-gson:3.0.0")
+    implementation("com.google.code.gson:gson:2.13.2")
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
     testImplementation(libs.junit)

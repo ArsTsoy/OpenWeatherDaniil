@@ -1,12 +1,15 @@
 package com.nearby.weatherdaniil.ui.view
+
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.nearby.weatherdaniil.data.remote.GeocodingApiService
 import com.nearby.weatherdaniil.data.repository.GeocodeRepository
+
 import com.nearby.weatherdaniil.databinding.MainActivityBinding
 import com.nearby.weatherdaniil.ui.viewmodel.GeocodeViewModel
+
 
 class MainActivity : AppCompatActivity() {
 

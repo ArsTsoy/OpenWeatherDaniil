@@ -8,6 +8,7 @@ import com.nearby.weatherdaniil.data.model.Location
 import com.nearby.weatherdaniil.data.repository.GeocodeRepository
 import kotlinx.coroutines.launch
 
+
 class GeocodeViewModel (private val repository: GeocodeRepository) : ViewModel() {
 
     private val _locations = MutableLiveData<Result<List<Location>>>()

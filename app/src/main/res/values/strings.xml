@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">WeatherDaniil</string>
     <string name="search_hint">Search</string>
+    <string name="weather_info">Weather Info</string>
 </resources>

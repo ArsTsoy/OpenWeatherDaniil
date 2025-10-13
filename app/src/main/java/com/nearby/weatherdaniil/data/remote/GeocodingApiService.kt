@@ -1,6 +1,5 @@
 package com.nearby.weatherdaniil.data.remote
 
-
 import com.nearby.weatherdaniil.data.model.GeocodeResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,21 +14,22 @@ interface GeocodingApiService {
         @Query("language") language: String = "en"
     ): GeocodeResponse
 
+    fun getLocations(name: String)
+
     companion object : GeocodingApiService {
         fun create(): GeocodingApiService {
-            val retrofit = Retrofit.Builder()
-                .baseUrl("https://geocoding-api.open-meteo.com/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            val retrofit = Retrofit.Builder().baseUrl("https://geocoding-api.open-meteo.com/v1/")
+                .addConverterFactory(GsonConverterFactory.create()).build()
             return retrofit.create(GeocodingApiService::class.java)
         }
 
         override suspend fun searchLocations(
-            name: String,
-            count: Int,
-            language: String
+            name: String, count: Int, language: String
         ): GeocodeResponse {
             return create().searchLocations(name, count, language)
+        }
+
+        override fun getLocations(name: String) {
         }
     }
 }
