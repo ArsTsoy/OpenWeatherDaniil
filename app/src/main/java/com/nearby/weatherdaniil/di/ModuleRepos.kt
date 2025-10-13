@@ -9,17 +9,17 @@ import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
-class ModuleRepos (val repository : com.nearby.weatherdaniil.di.ModuleRepos?){
-    val myModule = module {
+class ModuleRepos(val repository: com.nearby.weatherdaniil.di.ModuleRepos?) {
+    val appModule = module {
         singleOf(::ModuleRepos)
         singleOf(::GeocodeRepository)
         singleOf(::GeocodeResponse)
         singleOf(::Location)
+        singleOf(::GeocodeViewModel)
         singleOf(::MainActivity)
-        singleOf(::GeocodeViewModel)}
-
-    companion object {
-        val myModule: Module = TODO()
     }
 
+    companion object {
+        val appModule: Module = TODO()
+    }
 }

@@ -13,5 +13,4 @@ interface WeatherApiService {
         @Query("wind_speed_unit") windSpeedUnit: String = "ms"
 
     ): WeatherResponce
-
 }
