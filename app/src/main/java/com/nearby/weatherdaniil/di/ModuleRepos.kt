@@ -2,7 +2,9 @@ package com.nearby.weatherdaniil.di
 
 import com.nearby.weatherdaniil.data.model.GeocodeResponse
 import com.nearby.weatherdaniil.data.model.Location
+import com.nearby.weatherdaniil.data.model.WeatherResponce
 import com.nearby.weatherdaniil.data.repository.GeocodeRepository
+import com.nearby.weatherdaniil.data.repository.WeatherRepository
 import com.nearby.weatherdaniil.ui.view.MainActivity
 import com.nearby.weatherdaniil.ui.viewmodel.GeocodeViewModel
 import org.koin.core.module.Module
@@ -17,6 +19,9 @@ class ModuleRepos(val repository: com.nearby.weatherdaniil.di.ModuleRepos?) {
         singleOf(::Location)
         singleOf(::GeocodeViewModel)
         singleOf(::MainActivity)
+        singleOf(::MainApplication)
+        singleOf(::WeatherResponce)
+        singleOf(::WeatherRepository)
     }
 
     companion object {

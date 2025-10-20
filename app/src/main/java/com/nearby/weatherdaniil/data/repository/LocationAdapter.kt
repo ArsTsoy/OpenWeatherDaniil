@@ -33,7 +33,7 @@ class LocationAdapter(
     inner class LocVH(item: View) : RecyclerView.ViewHolder(item) {
         fun bind(location: Location) {
             (itemView as TextView).text =
-                "${location.name}, ${location.country} (${location.latitude}, ${location.longitude})"
+                "${location.name}, ${location.country} (${location.latitude}, ${location.longitude},${location.temperature}, ${location.humidity})"
             itemView.setOnClickListener {
                 onClick(location)
             }

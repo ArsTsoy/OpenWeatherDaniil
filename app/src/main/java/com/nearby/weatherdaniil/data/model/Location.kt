@@ -6,5 +6,8 @@ data class Location(
     val latitude: Double?,
     val longitude: Double?,
     val country: String?,
-    val timezone: String?
+    val timezone: String?,
+    val temperature: Double?,
+    val humidity: Double?,
+
 )

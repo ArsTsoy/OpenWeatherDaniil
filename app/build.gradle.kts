@@ -43,7 +43,22 @@ android {
 }
 
 dependencies {
-
+    api("com.google.flatbuffers:flatbuffers-java:25.2.10")
+    api("com.google.code.findbugs:jsr305:3.0.2")
+    constraints {
+        add("implementation", "com.google.flatbuffers:flatbuffers-java") {
+            version {
+                prefer("25.2.10")
+                require("22.10.0")
+            }
+        }
+        add("implementation", "com.google.code.findbugs:jsr305") {
+            version {
+                prefer("3.0.2")
+                require("3.0.0")
+            }
+        }
+    }
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -59,3 +74,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+

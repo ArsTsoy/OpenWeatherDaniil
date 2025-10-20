@@ -2,14 +2,14 @@ package com.nearby.weatherdaniil.ui.view
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.nearby.weatherdaniil.R
 import com.nearby.weatherdaniil.data.remote.GeocodingApiService
 import com.nearby.weatherdaniil.data.repository.GeocodeRepository
-
 import com.nearby.weatherdaniil.databinding.MainActivityBinding
 import com.nearby.weatherdaniil.ui.viewmodel.GeocodeViewModel
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val weatherButton: Button? = findViewById(R.id.weatherButton)
         super.onCreate(savedInstanceState)
         val binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.locations.observe(this) { result ->
             result.onSuccess { list ->
                 adapter.clear()
-                adapter.addAll(list.map { "${it.name}, ${it.country} (${it.latitude}, ${it.longitude})" })
+                adapter.addAll(list.map { "${it.name}, ${it.country} (${it.latitude}, ${it.longitude}, ${it.temperature}, ${it.humidity})" })
             }.onFailure {
                 Toast.makeText(this, "Error: ${it.localizedMessage}", Toast.LENGTH_SHORT).show()
             }

@@ -4,11 +4,10 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.util.Date
 
-
 @Serializable
 data class WeatherResponce(
-    val latitude: Double,
-    val longitude: Double,
+    val latitude: Double = 12.56,
+    val longitude: Double = 65.14,
     @SerialName("hourly_units") val hourlyUnits: HourlyUnits,
     val hourly: HourlyData
 )

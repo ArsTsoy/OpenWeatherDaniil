@@ -19,6 +19,7 @@ interface GeocodingApiService {
     companion object : GeocodingApiService {
         fun create(): GeocodingApiService {
             val retrofit = Retrofit.Builder().baseUrl("https://geocoding-api.open-meteo.com/v1/")
+
                 .addConverterFactory(GsonConverterFactory.create()).build()
             return retrofit.create(GeocodingApiService::class.java)
         }
@@ -33,3 +34,5 @@ interface GeocodingApiService {
         }
     }
 }
+val weatherRetrofit = Retrofit.Builder().baseUrl("https://geocoding-api.open-meteo.com/v1/")
+
